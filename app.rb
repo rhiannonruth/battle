@@ -1,8 +1,14 @@
 require 'sinatra/base'
 
-class battle < Sinatra::Base
+class Battle < Sinatra::Base
   get '/' do
-    'Hello battle!'
+    erb(:player_form)
+  end
+
+  post '/names' do
+    @player1 = params[:player1]
+    @player2 = params[:player2]
+    erb(:names)
   end
 
   # start the server if ruby file executed directly
