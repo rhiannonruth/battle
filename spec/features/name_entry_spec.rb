@@ -8,7 +8,7 @@ feature '#Start fight' do
       fill_in 'player2', with: "Ruff"
       click_button 'Play MOTHERS!'
 
-      expect(page).to have_text("Terry V Ruff - GAME ON!!!")
+      expect(page).to have_text("Terry VS Ruff - GAME ON!!!")
 
   end
 end
