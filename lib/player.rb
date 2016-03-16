@@ -10,10 +10,6 @@ class Player
     @hit_points = hit_points
   end
 
-  def attack(player)
-    player.been_hit
-  end
-
   def been_hit
     @hit_points -= DEFAULT_HIT
   end

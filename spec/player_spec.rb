@@ -14,13 +14,6 @@ describe Player do
     end
   end
 
-  describe "#attack" do
-    it "can attack another player" do
-      expect(gangsta).to receive(:been_hit)
-      tobenna.attack(gangsta)
-    end
-  end
-
   describe "#been_hit" do
     it "reduces hit_points by default hit" do
       expect{ gangsta.been_hit }.to change{ gangsta.hit_points }.by -Player::DEFAULT_HIT

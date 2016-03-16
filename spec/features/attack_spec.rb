@@ -26,4 +26,5 @@ feature 'Attack' do
 		click_button "Attack1"
 		expect(page).to have_content("Terry: 90 Hit Points VS Ruff: 100 Hit Points")
 	end
+
 end
