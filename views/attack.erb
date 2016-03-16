@@ -1,14 +1,9 @@
 <div><%= @game.player1.name %>: <%= @game.player1.hit_points %> Hit Points VS <%= @game.player2.name %>: <%= @game.player2.hit_points %> Hit Points</div>
 <div></div>
-<h2><%= @winner.name %> has hit <%= @loser.name %>!</h2>
+<h2><%= @game.current_player.name %> has hit <%= @game.current_opponent.name %>!</h2>
 
-<% if @winner.name == @game.player1.name %>
-<form action="/play2">
+<form action="/switch_turn" method="post">
 	<button type="submit" value="Finished">Finished</button>
 </form>
-<% else %>
-<form action="/play">
-	<button type="submit" value="Finished">Finished</button>
-</form>
-<% end %>
+
 
