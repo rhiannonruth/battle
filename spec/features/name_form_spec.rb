@@ -1,6 +1,6 @@
 
 
-feature 'Form takes name', :type => :feature do
+feature 'Form takes name' , :type => :feature do
   scenario 'Player name shows on screen' do
     visit('/')
     fill_in(:player1, with: 'Adil')
