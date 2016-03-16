@@ -1,7 +1,7 @@
 <div><%= @game.player1.name %>: <%= @game.player1.hit_points %> Hit Points VS <%= @game.player2.name %>: <%= @game.player2.hit_points %> Hit Points</div>
 <div></div>
 <h1><%= @game.player1.name %> VS <%= @game.player2.name %> - GAME ON!!!</h1>
-<div><%= @game.player1.name %>, it's your go!</div>
-<form action="/attack2">
-	<button type="submit" value="Attack2">Attack <%= @game.player2.name %></button>
+<div><%= @game.player2.name %>, it's your go!</div>
+<form action="/attack1">
+	<button type="submit" value="Attack1">Attack <%= @game.player1.name %></button>
 </form>

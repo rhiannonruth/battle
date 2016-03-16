@@ -2,6 +2,13 @@
 <div></div>
 <h2><%= @winner.name %> has hit <%= @loser.name %>!</h2>
 
+<% if @winner.name == @game.player1.name %>
+<form action="/play2">
+	<button type="submit" value="Finished">Finished</button>
+</form>
+<% else %>
 <form action="/play">
 	<button type="submit" value="Finished">Finished</button>
 </form>
+<% end %>
+
