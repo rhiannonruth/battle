@@ -1,6 +1,9 @@
-<%= @player_1_name %> v <%= @player_2_name %>
 
-<%= @player_2_name %> - 60 hit points
+
+<%= @player_1.name %> v <%= @player_2.name %>
+
+
+<%= @player_2.name %>:  <%= @player_2.hitpoints %> HP
 
 <form action= '/attack1'>
   <input type='submit' value='ATTACK!'/>
