@@ -1,9 +1,11 @@
 <div><%= @game.player1.name %>: <%= @game.player1.hit_points %> Hit Points VS <%= @game.player2.name %>: <%= @game.player2.hit_points %> Hit Points</div>
 <div></div>
-<h2><%= @game.current_player.name %> has hit <%= @game.current_opponent.name %>!</h2>
-
-<form action="/switch_turn" method="post">
-	<button type="submit" value="Finished">Finished</button>
-</form>
-
-
+<h1><%= @game.current_player.name %> has hit <%= @game.current_opponent.name %>!</h1>
+<div></div>
+<% if @game.current_opponent.hit_points <= 0 %>
+  <h1> <%= @game.current_opponent.name %> IS DEAD!</h1>
+<% else %>
+  <form action="/switch_turn" method="post">
+  	<button type="submit" value="Finished">Finished</button>
+  </form>
+<% end %>

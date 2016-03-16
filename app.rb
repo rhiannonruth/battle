@@ -22,11 +22,11 @@ class Battle < Sinatra::Base
     erb(:play)
   end
 
-  	get '/attack' do
-	    @game = $game
-	    @game.attack(@game.current_opponent)
-	  	erb(:attack)
-  	end
+  get '/attack' do
+	  @game = $game
+	  @game.attack(@game.current_opponent)
+	  erb(:attack)
+  end
 
 	post '/switch_turn' do
 		$game.switch_player

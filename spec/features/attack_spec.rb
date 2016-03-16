@@ -17,18 +17,23 @@ feature 'Attack' do
 
 	scenario "notification that player 1 has been hit" do
 		sign_in_and_play
-		click_button "Attack"
-		click_button "Finished"
+		one_round
 		click_button "Attack"
 		expect(page).to have_content("Ruff has hit Terry!")
 	end
 
 	scenario "player 1's HP reduces" do
 		sign_in_and_play
-		click_button "Attack"
-		click_button "Finished"
+		one_round
 		click_button "Attack"
 		expect(page).to have_content("Terry: 90 Hit Points VS Ruff: 90 Hit Points")
+	end
+
+	scenario "player 2 loses" do
+		sign_in_and_play
+		18.times{ one_round }
+		click_button "Attack"
+		expect(page).to have_content("Ruff IS DEAD!")
 	end
 
 end
