@@ -1,1 +1,7 @@
-<div><%= @winner %> has hit <%= @loser %>!</div>
+<div><%= $player1_name %>: <%= $player1.hit_points %> Hit Points VS <%= $player2_name %>: <%= $player2.hit_points%> Hit Points</div>
+<div></div>
+<h2><%= @winner %> has hit <%= @loser %>!</h2>
+
+<form action="/play">
+	<button type="submit" value="Finished">Finished</button>
+</form>

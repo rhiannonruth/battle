@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'player'
+require './lib/player'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -22,12 +22,14 @@ class Battle < Sinatra::Base
   end
 
   get '/attack1' do
+    $player2.attack($player1)
   	@loser = $player1_name
     @winner = $player2_name
   	erb(:attack)
   end
 
    get '/attack2' do
+    $player1.attack($player2)
    	@loser = $player2_name
     @winner = $player1_name
   	erb(:attack)
