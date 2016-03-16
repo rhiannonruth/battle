@@ -1,9 +1,9 @@
-<h1><%= @player1 %> VS <%= @player2 %> - GAME ON!!!</h1>
-<div><%= @player1 %>: 100 Hit Points</div>
-<div><%= @player2 %>: 100 Hit Points</div> 
+<h1><%= $player1 %> VS <%= $player2 %> - GAME ON!!!</h1>
+<div><%= $player1 %>: 100 Hit Points</div>
+<div><%= $player2 %>: 100 Hit Points</div>
 <form action="/attack2">
-	<button type="submit" value="Attack2">Attack <%= @player2 %></button>
+	<button type="submit" value="Attack2">Attack <%= $player2 %></button>
 </form>
 <form action="/attack1">
-	<button type="submit" value="Attack1">Attack <%= @player1 %></button>
+	<button type="submit" value="Attack1">Attack <%= $player1 %></button>
 </form>
