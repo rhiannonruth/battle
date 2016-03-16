@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'player'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -22,11 +23,13 @@ class Battle < Sinatra::Base
 
   get '/attack1' do
   	@loser = session[:player1]
+    @winner = session[:player2]
   	erb(:attack)
   end
 
    get '/attack2' do
   	@loser = session[:player2]
+    @winner = session[:player1]
   	erb(:attack)
   end
   # start the server if ruby file executed directly
