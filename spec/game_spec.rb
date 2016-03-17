@@ -6,15 +6,15 @@ describe Game do
 	subject(:game) { described_class.new(tom, jerry) }
 
 	describe '#initialize' do
-		it ' i. starts with a player 1' do
+		it ' a. starts with a player 1' do
 			expect(game.player1).to be tom
 		end
 
-		it ' ii. starts with a player 2' do
+		it ' b. starts with a player 2' do
 			expect(game.player2).to eq jerry
 		end
 
-		it ' iii. starts with the current_player being player 1' do
+		it ' c. starts with the current_player being player 1' do
 			expect(game.current_player).to eq tom
 		end
 	end

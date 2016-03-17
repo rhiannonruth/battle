@@ -4,6 +4,14 @@ require_relative 'player'
 
 class Game
 
+  def self.start(player1, player2)
+    @game = Game.new(player1, player2)
+  end
+
+  def self.current_game
+    @game
+  end
+
   attr_reader :player1, :player2, :current_player
 
   def initialize(player1, player2)
