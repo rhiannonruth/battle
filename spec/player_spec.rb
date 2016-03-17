@@ -19,4 +19,11 @@ describe Player do
       expect{ gangsta.been_hit }.to change{ gangsta.hit_points }.by -Player::DEFAULT_HIT
     end
   end
+
+  describe "#dead" do
+    it "returns true when a player's hit points are 0" do
+      10.times{ tobenna.been_hit }
+      expect(tobenna.dead?).to be true
+    end
+  end
 end

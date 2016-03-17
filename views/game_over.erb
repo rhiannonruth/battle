@@ -2,6 +2,7 @@
 <br>
 <h1><%= @game.current_player.name %> has hit <%= @game.current_opponent.name %>!</h1>
 <br>
-<form action="/switch_turn" method="post">
-  <button type="submit" value="Finished">Finished</button>
+<h1> <%= @game.current_opponent.name %> IS DEAD!</h1>
+<form action="/" >
+  <button type="submit" value="Rest">Play again!</button>
 </form>

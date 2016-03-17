@@ -12,7 +12,7 @@ feature 'Attack' do
 	scenario "player 2's HP reduces" do
 		sign_in_and_play
 		click_button "Attack"
-		expect(page).to have_content("Terry: 100 Hit Points VS Ruff: 90 Hit Points")
+		expect(page).to have_content("Terry: 100 HP Ruff: 90 HP")
 	end
 
 	scenario "notification that player 1 has been hit" do
@@ -26,7 +26,7 @@ feature 'Attack' do
 		sign_in_and_play
 		one_round
 		click_button "Attack"
-		expect(page).to have_content("Terry: 90 Hit Points VS Ruff: 90 Hit Points")
+		expect(page).to have_content("Terry: 90 HP Ruff: 90 HP")
 	end
 
 	scenario "player 2 loses" do

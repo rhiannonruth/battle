@@ -1,3 +1,5 @@
+require 'pry'
+
 require_relative 'player'
 
 class Game
@@ -20,6 +22,10 @@ class Game
 
   def switch_player
   	@current_player == @player1 ? @current_player = player2 : @current_player = player1
+  end
+
+  def game_over?
+    @player1.dead? || @player2.dead?
   end
 
 end
