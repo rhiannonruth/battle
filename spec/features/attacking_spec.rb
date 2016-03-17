@@ -12,7 +12,7 @@ feature 'Attacking' do
 	scenario "player 2's HP reduces" do
 		sign_in_and_play
 		click_button "Attack"
-		expect(page).to have_content("Terry: 100 HP Ruff: 90 HP")
+		expect(page).to_not have_content("Ruff: 100 HP")
 	end
 
 	scenario "notification that player 1 has been hit" do
@@ -26,12 +26,13 @@ feature 'Attacking' do
 		sign_in_and_play
 		one_round
 		click_button "Attack"
-		expect(page).to have_content("Terry: 90 HP Ruff: 90 HP")
+		expect(page).to_not have_content("Terry: 100 HP")
 	end
 
 	scenario "player 2 loses" do
+		allow(Kernel).to receive(:rand).and_return(99)
 		sign_in_and_play
-		18.times{ one_round }
+		2.times{ one_round }
 		click_button "Attack"
 		expect(page).to have_content("Ruff IS DEAD!")
 	end

@@ -10,8 +10,8 @@ class Player
     @hit_points = hit_points
   end
 
-  def been_hit
-    @hit_points -= DEFAULT_HIT
+  def been_hit(damage = DEFAULT_HIT)
+    @hit_points -= damage
   end
 
   def dead?

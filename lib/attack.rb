@@ -9,6 +9,12 @@ class Attack
   end
 
   def attack
-    @player.been_hit
+    @player.been_hit(damage)
   end
+
+  private
+
+    def damage
+      Kernel.rand(5..10)
+    end
 end
