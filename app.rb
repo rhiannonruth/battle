@@ -17,7 +17,11 @@ class Battle < Sinatra::Base
 
   get '/play' do
     @game = $game
-    erb :play
+     if @game.player_1.dead? || @game.player_2.dead?
+       erb :lose
+     else
+       erb :play
+     end
   end
 
   get '/attack1' do

@@ -22,4 +22,15 @@ describe Player do
       expect{dave.be_attacked}.to change {dave.hitpoints}.by(-10)
     end
   end
+
+  describe '#dead?' do
+    it "returns player's dead status when alive" do
+      expect(dave.dead?).to eq false
+    end
+
+    it "returns player's dead status when at 0HP or less" do
+      allow(brian).to receive(:hitpoints){0}
+      expect(brian.dead?).to eq true
+    end
+  end
 end
