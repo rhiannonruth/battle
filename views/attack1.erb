@@ -1,9 +1,5 @@
 <div>
-  <h3> You attacked <%= @game.player_2.name %> </h3>
-</div>
-
-<div>
-  <h3> <%= @game.player_2.name %>: 50 HP </h3>
+  <h3> <%= @game.current_player.name %> attacked <%= @game.opponent.name %> </h3>
 </div>
 
 <form action= '/switch' method='post'>

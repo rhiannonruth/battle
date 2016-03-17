@@ -1,16 +1,15 @@
 feature 'Attacking' do
 
-  scenario 'attacks player 2' do
+  scenario 'player 1 attacks player 2' do
     sign_in_and_play
     click_button 'ATTACK!'
-    expect(page).to have_content("You attacked Nick")
+    expect(page).to have_content("Adil attacked Nick")
   end
 
-  scenario 'reduce Player 2 HP by 10' do
+  scenario 'player 2 attacks player 1' do
     sign_in_and_play
     click_button 'ATTACK!'
-    expect(page).not_to have_content 'Nick: 60 HP'
-    expect(page).to have_content 'Nick: 50 HP'
+    expect(page).to have_content("Adil attacked Nick")
   end
 
 end
