@@ -19,12 +19,12 @@ describe Game do
 		end
 	end
 
-	describe '#attack' do
-		it ' calls the been_hit method' do
-			expect(tom).to receive(:been_hit)
-			game.attack(tom)
-		end
-	end
+	# describe '#attack' do
+	# 	it ' calls the been_hit method' do
+	# 		expect(tom).to receive(:been_hit)
+	# 		game.attack(tom)
+	# 	end
+	# end
 
 	describe '#current_opponent' do
 		it ' shows the current_opponent' do

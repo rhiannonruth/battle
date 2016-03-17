@@ -26,7 +26,7 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-	  @game.attack(@game.current_opponent)
+	  Attack.commence(@game.current_opponent)
     if @game.game_over?
       redirect('/game_over')
     else

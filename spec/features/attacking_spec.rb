@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'capybara'
 
-feature 'Attack' do
+feature 'Attacking' do
 
 	scenario "notification that player 2 has been hit" do
 		sign_in_and_play
