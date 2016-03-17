@@ -1,9 +1,12 @@
 
 
-<%= @player_1.name %> v <%= @player_2.name %>
+<div>
+  <h2> <%= @game.player_1.name %> v <%= @game.player_2.name %> </h2>
+</div>
 
-
-<%= @player_2.name %>:  <%= @player_2.hitpoints %> HP
+<div>
+  <h3> <%= @game.player_2.name %>:  <%= @game.player_2.hitpoints %> HP </h3>
+</div>
 
 <form action= '/attack1'>
   <input type='submit' value='ATTACK!'/>

@@ -1,5 +1,4 @@
 
-
 feature 'Enter names' do
   scenario 'Player name shows on screen' do
     sign_in_and_play

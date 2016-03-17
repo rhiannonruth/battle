@@ -1,4 +1,5 @@
 feature 'Attacking' do
+
   scenario 'attacks player 2' do
     sign_in_and_play
     click_button 'ATTACK!'
@@ -11,5 +12,5 @@ feature 'Attacking' do
     expect(page).not_to have_content 'Nick: 60 HP'
     expect(page).to have_content 'Nick: 50 HP'
   end
-
+  
 end

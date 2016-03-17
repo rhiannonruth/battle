@@ -1,10 +1,12 @@
 class Game
 
-  def initialize(player1, player2)
-    @player1 = player1
-    @player2 = player2
-   end
+  attr_reader :player_1, :player_2
 
+  def initialize(player_1, player_2)
+    @player_1 = player_1
+    @player_2 = player_2
+  end
+  require 'pry'; binding.pry
   def attack(player)
    player.be_attacked
   end
