@@ -3,7 +3,7 @@ class Game
   attr_reader :player_1, :player_2, :current_player, :opponent
 
   def self.start(player_1, player_2)
-    @game = Game.new(player_1, player_2)
+    @game ||= Game.new(player_1, player_2)
   end
 
   def self.get_game

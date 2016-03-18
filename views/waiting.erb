@@ -1,1 +1,7 @@
-2 Players logged in! <%= @session['player_1'] %> and <%= @session['player_2'] %>
+Welcome <%= @session['player_1'] %>
+<br>
+Awaiting the next player... Click below to see if they are ready!
+<br>
+<form action='/waiting_room'>
+  <input type='submit' value='Ready?'/>
+</form>

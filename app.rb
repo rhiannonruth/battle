@@ -32,13 +32,21 @@ class Battle < Sinatra::Base
   end
 
   get '/waiting_room' do
-    @session = session
-    erb :waiting
+    if session['player_2'] == nil
+      @session = session
+      erb :waiting
+    else
+      redirect '/ready'
+    end
+  end
+
+  get '/ready' do
+    erb :ready
   end
 
   post '/names' do
-    player_1 = Player.new(params[:player_1_name])
-    player_2 = Player.new(params[:player_2_name])
+    player_1 = Player.new(session['player_1'])
+    player_2 = Player.new(session['player_2'])
     Game.start(player_1, player_2)
     redirect '/play'
   end
