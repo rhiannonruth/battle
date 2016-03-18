@@ -4,9 +4,36 @@ require './lib/game'
 
 class Battle < Sinatra::Base
   enable :sessions
+  set :session_secret, 'super secret'
+
+  before do
+    @game = Game.get_game
+  end
 
   get '/' do
-    erb(:index)
+    session.clear if session['player_1'] && session['player_2']
+    if session['player_1'] == nil
+      erb :player1_form
+    else
+      erb :player2_form
+    end
+  end
+
+  post '/player_1_session' do
+    session['me'] = params[:player_1_name]
+    session['player_1'] = params[:player_1_name]
+    redirect '/waiting_room'
+  end
+
+  post '/player_2_session' do
+    session['me'] = params[:player_2_name]
+    session['player_2'] = params[:player_2_name]
+    redirect '/waiting_room'
+  end
+
+  get '/waiting_room' do
+    @session = session
+    erb :waiting
   end
 
   post '/names' do
@@ -16,16 +43,8 @@ class Battle < Sinatra::Base
     redirect '/play'
   end
 
-  before do
-    @game = Game.get_game
-  end
-
   get '/play' do
-     if @game.player_1.dead? || @game.player_2.dead?
-       erb :lose
-     else
-       erb :play
-     end
+    (@game.player_1.dead? || @game.player_2.dead?) ? (erb :lose) : (erb :play)
   end
 
   get '/attack1' do
