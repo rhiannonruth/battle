@@ -12,12 +12,15 @@ class Battle < Sinatra::Base
   post '/names' do
     player_1 = Player.new(params[:player_1_name])
     player_2 = Player.new(params[:player_2_name])
-    $game = Game.new(player_1, player_2)
+    Game.start(player_1, player_2)
     redirect '/play'
   end
 
+  before do
+    @game = Game.get_game
+  end
+
   get '/play' do
-    @game = $game
      if @game.player_1.dead? || @game.player_2.dead?
        erb :lose
      else
@@ -26,13 +29,12 @@ class Battle < Sinatra::Base
   end
 
   get '/attack1' do
-    @game = $game
     @game.attack(@game.opponent)
     erb :attack1
   end
 
   post '/switch' do
-    $game.switch
+    @game.switch
     redirect '/play'
   end
 
