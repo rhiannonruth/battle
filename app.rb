@@ -52,7 +52,20 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    (@game.player_1.dead? || @game.player_2.dead?) ? (erb :lose) : (erb :play)
+    if @game.game_over?
+      (erb :lose)
+    else
+      @session = session
+      erb :play
+    end
+  end
+
+  get '/wait' do
+    if @game.current_player.name == session['me']
+      redirect '/play'
+    else
+      redirect '/wait'
+    end
   end
 
   get '/attack1' do

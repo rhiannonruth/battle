@@ -26,4 +26,8 @@ class Game
     @opponent = (@opponent == @player_2 ? @player_1 : @player_2)
   end
 
+  def game_over?
+    @player_1.dead? or @player_2.dead?
+  end
+
 end
